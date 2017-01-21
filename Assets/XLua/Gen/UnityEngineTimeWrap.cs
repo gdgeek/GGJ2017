@@ -28,7 +28,7 @@ namespace CSObjectWrap
 			Utils.EndObjectRegister(typeof(UnityEngine.Time), L, translator, null, null,
 			    null, null, null);
 
-		    Utils.BeginClassRegister(typeof(UnityEngine.Time), L, __CreateInstance, 1, 14, 4);
+		    Utils.BeginClassRegister(typeof(UnityEngine.Time), L, __CreateInstance, 1, 15, 5);
 			
 			
             
@@ -42,6 +42,7 @@ namespace CSObjectWrap
             Utils.RegisterFunc(L, Utils.CLS_GETTER_IDX, "fixedDeltaTime", get_fixedDeltaTime);
             Utils.RegisterFunc(L, Utils.CLS_GETTER_IDX, "maximumDeltaTime", get_maximumDeltaTime);
             Utils.RegisterFunc(L, Utils.CLS_GETTER_IDX, "smoothDeltaTime", get_smoothDeltaTime);
+            Utils.RegisterFunc(L, Utils.CLS_GETTER_IDX, "maximumParticleDeltaTime", get_maximumParticleDeltaTime);
             Utils.RegisterFunc(L, Utils.CLS_GETTER_IDX, "timeScale", get_timeScale);
             Utils.RegisterFunc(L, Utils.CLS_GETTER_IDX, "frameCount", get_frameCount);
             Utils.RegisterFunc(L, Utils.CLS_GETTER_IDX, "renderedFrameCount", get_renderedFrameCount);
@@ -50,6 +51,7 @@ namespace CSObjectWrap
             
 			Utils.RegisterFunc(L, Utils.CLS_SETTER_IDX, "fixedDeltaTime", set_fixedDeltaTime);
             Utils.RegisterFunc(L, Utils.CLS_SETTER_IDX, "maximumDeltaTime", set_maximumDeltaTime);
+            Utils.RegisterFunc(L, Utils.CLS_SETTER_IDX, "maximumParticleDeltaTime", set_maximumParticleDeltaTime);
             Utils.RegisterFunc(L, Utils.CLS_SETTER_IDX, "timeScale", set_timeScale);
             Utils.RegisterFunc(L, Utils.CLS_SETTER_IDX, "captureFramerate", set_captureFramerate);
             
@@ -197,6 +199,18 @@ namespace CSObjectWrap
         }
         
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int get_maximumParticleDeltaTime(RealStatePtr L)
+        {
+            
+            try {
+			    LuaAPI.lua_pushnumber(L, UnityEngine.Time.maximumParticleDeltaTime);
+            } catch(System.Exception __gen_e) {
+                return LuaAPI.luaL_error(L, "c# exception:" + __gen_e);
+            }
+            return 1;
+        }
+        
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int get_timeScale(RealStatePtr L)
         {
             
@@ -277,6 +291,19 @@ namespace CSObjectWrap
             
             try {
 			    UnityEngine.Time.maximumDeltaTime = (float)LuaAPI.lua_tonumber(L, 1);
+            
+            } catch(System.Exception __gen_e) {
+                return LuaAPI.luaL_error(L, "c# exception:" + __gen_e);
+            }
+            return 0;
+        }
+        
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int set_maximumParticleDeltaTime(RealStatePtr L)
+        {
+            
+            try {
+			    UnityEngine.Time.maximumParticleDeltaTime = (float)LuaAPI.lua_tonumber(L, 1);
             
             } catch(System.Exception __gen_e) {
                 return LuaAPI.luaL_error(L, "c# exception:" + __gen_e);

@@ -380,9 +380,9 @@ namespace CSObjectWrap
             try {
                 
                 {
-                    object o = translator.GetObject(L, 2, typeof(object));
+                    object other = translator.GetObject(L, 2, typeof(object));
                     
-                        bool __cl_gen_ret = __cl_gen_to_be_invoked.Equals( o );
+                        bool __cl_gen_ret = __cl_gen_to_be_invoked.Equals( other );
                         LuaAPI.lua_pushboolean(L, __cl_gen_ret);
                     
                     
@@ -434,9 +434,9 @@ namespace CSObjectWrap
                 {
                     UnityEngine.Object original = (UnityEngine.Object)translator.GetObject(L, 1, typeof(UnityEngine.Object));
                     UnityEngine.Transform parent = (UnityEngine.Transform)translator.GetObject(L, 2, typeof(UnityEngine.Transform));
-                    bool worldPositionStays = LuaAPI.lua_toboolean(L, 3);
+                    bool instantiateInWorldSpace = LuaAPI.lua_toboolean(L, 3);
                     
-                        UnityEngine.Object __cl_gen_ret = UnityEngine.Object.Instantiate( original, parent, worldPositionStays );
+                        UnityEngine.Object __cl_gen_ret = UnityEngine.Object.Instantiate( original, parent, instantiateInWorldSpace );
                         translator.Push(L, __cl_gen_ret);
                     
                     

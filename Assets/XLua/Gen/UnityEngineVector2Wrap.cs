@@ -323,10 +323,10 @@ namespace CSObjectWrap
             try {
                 
                 {
-                    float new_x = (float)LuaAPI.lua_tonumber(L, 2);
-                    float new_y = (float)LuaAPI.lua_tonumber(L, 3);
+                    float newX = (float)LuaAPI.lua_tonumber(L, 2);
+                    float newY = (float)LuaAPI.lua_tonumber(L, 3);
                     
-                    __cl_gen_to_be_invoked.Set( new_x, new_y );
+                    __cl_gen_to_be_invoked.Set( newX, newY );
                     
                     
                         translator.UpdateUnityEngineVector2(L, 1, __cl_gen_to_be_invoked);
@@ -884,45 +884,8 @@ namespace CSObjectWrap
             
             
             
-			int __gen_param_count = LuaAPI.lua_gettop(L);
-            
             try {
-                if(__gen_param_count == 4&& translator.Assignable<UnityEngine.Vector2>(L, 1)&& translator.Assignable<UnityEngine.Vector2>(L, 2)&& translator.Assignable<UnityEngine.Vector2>(L, 3)&& LuaTypes.LUA_TNUMBER == LuaAPI.lua_type(L, 4)) 
-                {
-                    UnityEngine.Vector2 current;translator.Get(L, 1, out current);
-                    UnityEngine.Vector2 target;translator.Get(L, 2, out target);
-                    UnityEngine.Vector2 currentVelocity;translator.Get(L, 3, out currentVelocity);
-                    float smoothTime = (float)LuaAPI.lua_tonumber(L, 4);
-                    
-                        UnityEngine.Vector2 __cl_gen_ret = UnityEngine.Vector2.SmoothDamp( current, target, ref currentVelocity, smoothTime );
-                        translator.PushUnityEngineVector2(L, __cl_gen_ret);
-                    translator.PushUnityEngineVector2(L, currentVelocity);
-                        translator.UpdateUnityEngineVector2(L, 3, currentVelocity);
-                        
-                    
-                    
-                    
-                    return 2;
-                }
-                if(__gen_param_count == 5&& translator.Assignable<UnityEngine.Vector2>(L, 1)&& translator.Assignable<UnityEngine.Vector2>(L, 2)&& translator.Assignable<UnityEngine.Vector2>(L, 3)&& LuaTypes.LUA_TNUMBER == LuaAPI.lua_type(L, 4)&& LuaTypes.LUA_TNUMBER == LuaAPI.lua_type(L, 5)) 
-                {
-                    UnityEngine.Vector2 current;translator.Get(L, 1, out current);
-                    UnityEngine.Vector2 target;translator.Get(L, 2, out target);
-                    UnityEngine.Vector2 currentVelocity;translator.Get(L, 3, out currentVelocity);
-                    float smoothTime = (float)LuaAPI.lua_tonumber(L, 4);
-                    float maxSpeed = (float)LuaAPI.lua_tonumber(L, 5);
-                    
-                        UnityEngine.Vector2 __cl_gen_ret = UnityEngine.Vector2.SmoothDamp( current, target, ref currentVelocity, smoothTime, maxSpeed );
-                        translator.PushUnityEngineVector2(L, __cl_gen_ret);
-                    translator.PushUnityEngineVector2(L, currentVelocity);
-                        translator.UpdateUnityEngineVector2(L, 3, currentVelocity);
-                        
-                    
-                    
-                    
-                    return 2;
-                }
-                if(__gen_param_count == 6&& translator.Assignable<UnityEngine.Vector2>(L, 1)&& translator.Assignable<UnityEngine.Vector2>(L, 2)&& translator.Assignable<UnityEngine.Vector2>(L, 3)&& LuaTypes.LUA_TNUMBER == LuaAPI.lua_type(L, 4)&& LuaTypes.LUA_TNUMBER == LuaAPI.lua_type(L, 5)&& LuaTypes.LUA_TNUMBER == LuaAPI.lua_type(L, 6)) 
+                
                 {
                     UnityEngine.Vector2 current;translator.Get(L, 1, out current);
                     UnityEngine.Vector2 target;translator.Get(L, 2, out target);
@@ -945,8 +908,6 @@ namespace CSObjectWrap
             } catch(System.Exception __gen_e) {
                 return LuaAPI.luaL_error(L, "c# exception:" + __gen_e);
             }
-            
-            return LuaAPI.luaL_error(L, "invalid arguments to UnityEngine.Vector2.SmoothDamp!");
             
         }
         

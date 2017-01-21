@@ -19,21 +19,22 @@ namespace CSObjectWrap
         public static void __Register(RealStatePtr L)
         {
 			ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
-			Utils.BeginObjectRegister(typeof(UnityEngine.MonoBehaviour), L, translator, 0, 8, 1, 1);
+			Utils.BeginObjectRegister(typeof(UnityEngine.MonoBehaviour), L, translator, 0, 7, 2, 2);
 			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "Invoke", Invoke);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "InvokeRepeating", InvokeRepeating);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "CancelInvoke", CancelInvoke);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "IsInvoking", IsInvoking);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "StartCoroutine", StartCoroutine);
-			Utils.RegisterFunc(L, Utils.METHOD_IDX, "StartCoroutine_Auto", StartCoroutine_Auto);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "StopCoroutine", StopCoroutine);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "StopAllCoroutines", StopAllCoroutines);
 			
 			
 			Utils.RegisterFunc(L, Utils.GETTER_IDX, "useGUILayout", get_useGUILayout);
+            Utils.RegisterFunc(L, Utils.GETTER_IDX, "runInEditMode", get_runInEditMode);
             
 			Utils.RegisterFunc(L, Utils.SETTER_IDX, "useGUILayout", set_useGUILayout);
+            Utils.RegisterFunc(L, Utils.SETTER_IDX, "runInEditMode", set_runInEditMode);
             
 			Utils.EndObjectRegister(typeof(UnityEngine.MonoBehaviour), L, translator, null, null,
 			    null, null, null);
@@ -278,35 +279,6 @@ namespace CSObjectWrap
         }
         
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-        static int StartCoroutine_Auto(RealStatePtr L)
-        {
-            
-            ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
-            
-            
-            UnityEngine.MonoBehaviour __cl_gen_to_be_invoked = (UnityEngine.MonoBehaviour)translator.FastGetCSObj(L, 1);
-            
-            
-            try {
-                
-                {
-                    System.Collections.IEnumerator routine = (System.Collections.IEnumerator)translator.GetObject(L, 2, typeof(System.Collections.IEnumerator));
-                    
-                        UnityEngine.Coroutine __cl_gen_ret = __cl_gen_to_be_invoked.StartCoroutine_Auto( routine );
-                        translator.Push(L, __cl_gen_ret);
-                    
-                    
-                    
-                    return 1;
-                }
-                
-            } catch(System.Exception __gen_e) {
-                return LuaAPI.luaL_error(L, "c# exception:" + __gen_e);
-            }
-            
-        }
-        
-        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int StopCoroutine(RealStatePtr L)
         {
             
@@ -428,6 +400,20 @@ namespace CSObjectWrap
             return 1;
         }
         
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int get_runInEditMode(RealStatePtr L)
+        {
+            ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
+            try {
+			
+                UnityEngine.MonoBehaviour __cl_gen_to_be_invoked = (UnityEngine.MonoBehaviour)translator.FastGetCSObj(L, 1);
+                LuaAPI.lua_pushboolean(L, __cl_gen_to_be_invoked.runInEditMode);
+            } catch(System.Exception __gen_e) {
+                return LuaAPI.luaL_error(L, "c# exception:" + __gen_e);
+            }
+            return 1;
+        }
+        
         
         
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -438,6 +424,21 @@ namespace CSObjectWrap
 			
                 UnityEngine.MonoBehaviour __cl_gen_to_be_invoked = (UnityEngine.MonoBehaviour)translator.FastGetCSObj(L, 1);
                 __cl_gen_to_be_invoked.useGUILayout = LuaAPI.lua_toboolean(L, 2);
+            
+            } catch(System.Exception __gen_e) {
+                return LuaAPI.luaL_error(L, "c# exception:" + __gen_e);
+            }
+            return 0;
+        }
+        
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int set_runInEditMode(RealStatePtr L)
+        {
+            ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
+            try {
+			
+                UnityEngine.MonoBehaviour __cl_gen_to_be_invoked = (UnityEngine.MonoBehaviour)translator.FastGetCSObj(L, 1);
+                __cl_gen_to_be_invoked.runInEditMode = LuaAPI.lua_toboolean(L, 2);
             
             } catch(System.Exception __gen_e) {
                 return LuaAPI.luaL_error(L, "c# exception:" + __gen_e);

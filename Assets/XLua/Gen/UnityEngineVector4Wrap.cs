@@ -62,9 +62,9 @@ namespace CSObjectWrap
             Utils.RegisterFunc(L, Utils.CLS_IDX, "Project", Project_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "Distance", Distance_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "Magnitude", Magnitude_xlua_st_);
-            Utils.RegisterFunc(L, Utils.CLS_IDX, "SqrMagnitude", SqrMagnitude_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "Min", Min_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "Max", Max_xlua_st_);
+            Utils.RegisterFunc(L, Utils.CLS_IDX, "SqrMagnitude", SqrMagnitude_xlua_st_);
             
 			
             Utils.RegisterObject(L, translator, Utils.CLS_IDX, "kEpsilon", UnityEngine.Vector4.kEpsilon);
@@ -626,53 +626,6 @@ namespace CSObjectWrap
         }
         
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-        static int ToString(RealStatePtr L)
-        {
-            
-            ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
-            
-            
-            UnityEngine.Vector4 __cl_gen_to_be_invoked;translator.Get(L, 1, out __cl_gen_to_be_invoked);
-            
-            
-			int __gen_param_count = LuaAPI.lua_gettop(L);
-            
-            try {
-                if(__gen_param_count == 1) 
-                {
-                    
-                        string __cl_gen_ret = __cl_gen_to_be_invoked.ToString(  );
-                        LuaAPI.lua_pushstring(L, __cl_gen_ret);
-                    
-                    
-                        translator.UpdateUnityEngineVector4(L, 1, __cl_gen_to_be_invoked);
-                    
-                    
-                    return 1;
-                }
-                if(__gen_param_count == 2&& (LuaAPI.lua_isnil(L, 2) || LuaAPI.lua_type(L, 2) == LuaTypes.LUA_TSTRING)) 
-                {
-                    string format = LuaAPI.lua_tostring(L, 2);
-                    
-                        string __cl_gen_ret = __cl_gen_to_be_invoked.ToString( format );
-                        LuaAPI.lua_pushstring(L, __cl_gen_ret);
-                    
-                    
-                        translator.UpdateUnityEngineVector4(L, 1, __cl_gen_to_be_invoked);
-                    
-                    
-                    return 1;
-                }
-                
-            } catch(System.Exception __gen_e) {
-                return LuaAPI.luaL_error(L, "c# exception:" + __gen_e);
-            }
-            
-            return LuaAPI.luaL_error(L, "invalid arguments to UnityEngine.Vector4.ToString!");
-            
-        }
-        
-        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int Dot_xlua_st_(RealStatePtr L)
         {
             
@@ -784,6 +737,109 @@ namespace CSObjectWrap
         }
         
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int Min_xlua_st_(RealStatePtr L)
+        {
+            
+            ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
+            
+            
+            
+            try {
+                
+                {
+                    UnityEngine.Vector4 lhs;translator.Get(L, 1, out lhs);
+                    UnityEngine.Vector4 rhs;translator.Get(L, 2, out rhs);
+                    
+                        UnityEngine.Vector4 __cl_gen_ret = UnityEngine.Vector4.Min( lhs, rhs );
+                        translator.PushUnityEngineVector4(L, __cl_gen_ret);
+                    
+                    
+                    
+                    return 1;
+                }
+                
+            } catch(System.Exception __gen_e) {
+                return LuaAPI.luaL_error(L, "c# exception:" + __gen_e);
+            }
+            
+        }
+        
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int Max_xlua_st_(RealStatePtr L)
+        {
+            
+            ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
+            
+            
+            
+            try {
+                
+                {
+                    UnityEngine.Vector4 lhs;translator.Get(L, 1, out lhs);
+                    UnityEngine.Vector4 rhs;translator.Get(L, 2, out rhs);
+                    
+                        UnityEngine.Vector4 __cl_gen_ret = UnityEngine.Vector4.Max( lhs, rhs );
+                        translator.PushUnityEngineVector4(L, __cl_gen_ret);
+                    
+                    
+                    
+                    return 1;
+                }
+                
+            } catch(System.Exception __gen_e) {
+                return LuaAPI.luaL_error(L, "c# exception:" + __gen_e);
+            }
+            
+        }
+        
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int ToString(RealStatePtr L)
+        {
+            
+            ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
+            
+            
+            UnityEngine.Vector4 __cl_gen_to_be_invoked;translator.Get(L, 1, out __cl_gen_to_be_invoked);
+            
+            
+			int __gen_param_count = LuaAPI.lua_gettop(L);
+            
+            try {
+                if(__gen_param_count == 1) 
+                {
+                    
+                        string __cl_gen_ret = __cl_gen_to_be_invoked.ToString(  );
+                        LuaAPI.lua_pushstring(L, __cl_gen_ret);
+                    
+                    
+                        translator.UpdateUnityEngineVector4(L, 1, __cl_gen_to_be_invoked);
+                    
+                    
+                    return 1;
+                }
+                if(__gen_param_count == 2&& (LuaAPI.lua_isnil(L, 2) || LuaAPI.lua_type(L, 2) == LuaTypes.LUA_TSTRING)) 
+                {
+                    string format = LuaAPI.lua_tostring(L, 2);
+                    
+                        string __cl_gen_ret = __cl_gen_to_be_invoked.ToString( format );
+                        LuaAPI.lua_pushstring(L, __cl_gen_ret);
+                    
+                    
+                        translator.UpdateUnityEngineVector4(L, 1, __cl_gen_to_be_invoked);
+                    
+                    
+                    return 1;
+                }
+                
+            } catch(System.Exception __gen_e) {
+                return LuaAPI.luaL_error(L, "c# exception:" + __gen_e);
+            }
+            
+            return LuaAPI.luaL_error(L, "invalid arguments to UnityEngine.Vector4.ToString!");
+            
+        }
+        
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int SqrMagnitude_xlua_st_(RealStatePtr L)
         {
             
@@ -829,62 +885,6 @@ namespace CSObjectWrap
                     
                     
                         translator.UpdateUnityEngineVector4(L, 1, __cl_gen_to_be_invoked);
-                    
-                    
-                    return 1;
-                }
-                
-            } catch(System.Exception __gen_e) {
-                return LuaAPI.luaL_error(L, "c# exception:" + __gen_e);
-            }
-            
-        }
-        
-        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-        static int Min_xlua_st_(RealStatePtr L)
-        {
-            
-            ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
-            
-            
-            
-            try {
-                
-                {
-                    UnityEngine.Vector4 lhs;translator.Get(L, 1, out lhs);
-                    UnityEngine.Vector4 rhs;translator.Get(L, 2, out rhs);
-                    
-                        UnityEngine.Vector4 __cl_gen_ret = UnityEngine.Vector4.Min( lhs, rhs );
-                        translator.PushUnityEngineVector4(L, __cl_gen_ret);
-                    
-                    
-                    
-                    return 1;
-                }
-                
-            } catch(System.Exception __gen_e) {
-                return LuaAPI.luaL_error(L, "c# exception:" + __gen_e);
-            }
-            
-        }
-        
-        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-        static int Max_xlua_st_(RealStatePtr L)
-        {
-            
-            ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
-            
-            
-            
-            try {
-                
-                {
-                    UnityEngine.Vector4 lhs;translator.Get(L, 1, out lhs);
-                    UnityEngine.Vector4 rhs;translator.Get(L, 2, out rhs);
-                    
-                        UnityEngine.Vector4 __cl_gen_ret = UnityEngine.Vector4.Max( lhs, rhs );
-                        translator.PushUnityEngineVector4(L, __cl_gen_ret);
-                    
                     
                     
                     return 1;
